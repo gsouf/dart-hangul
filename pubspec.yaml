@@ -1,0 +1,12 @@
+name: hangul
+description: Manipulate hangul characters
+version: 0.1.0
+author: Soufiane Ghzal
+repository: https://gitlab.com/souf/dart-hangul
+homepage: https://gitlab.com/souf/dart-hangul
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dev_dependencies:
+  test: ^1.16.0
