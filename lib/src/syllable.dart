@@ -77,11 +77,11 @@ class HangulSyllable {
   /// ```
   factory HangulSyllable.fromString(String syllable) {
     assert(syllable.length == 1,
-        'syllable should be exactly 1 character long string');
+        'Syllable should be exactly 1 character long string.');
     return _parseHangulSyllable(syllable.codeUnitAt(0));
   }
 
-  /// Assembles the 2 or 3 jamos wrapped in this into a single syllable character.
+  /// Assembles the 2 or 3 jamos composing the syllable into a single syllable character.
   ///
   /// ```dart
   /// HangulSyllable('ㄱ', 'ㅏ').toString();    // '가'
@@ -123,7 +123,7 @@ bool isHangulSyllable(String char) {
 /// Disassembles a single unicode hangul syllable
 HangulSyllable _parseHangulSyllable(int syllable) {
   assert(isHangulSyllableCode(syllable),
-      'Trying to  disassemble a character that is not a hangul syllable');
+      'Trying to disassemble a character that is not a hangul syllable.');
 
   final charIndex = syllable - _hangulFirstSyllable;
   final jongIndex = charIndex % 28; // 28 being number of possible jong
