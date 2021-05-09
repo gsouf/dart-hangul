@@ -1,6 +1,6 @@
 name: hangul
 description: Manipulate korean hangul characters (한글)
-version: 0.1.0
+version: 0.1.1
 repository: https://gitlab.com/souf/dart-hangul
 homepage: https://gitlab.com/souf/dart-hangul
 
