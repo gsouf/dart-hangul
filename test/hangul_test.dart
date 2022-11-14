@@ -28,6 +28,15 @@ void main() {
       expect(isValidJung('a'), equals(false));
       expect(isValidJung(null), equals(false));
     });
+    test('isValidJamo', () {
+      expect(isValidJamo('ㄱ'), equals(true));
+      expect(isValidJamo('ㄱㄱ'), equals(false));
+      expect(isValidJamo('가'), equals(false));
+      expect(isValidJamo('ㅀ'), equals(true));
+      expect(isValidJamo('ㅏ'), equals(true));
+      expect(isValidJamo('a'), equals(false));
+      expect(isValidJamo(null), equals(true));
+    });
     test('isValidJungCode', () {
       expect(isValidJungCode('ㄱ'.codeUnitAt(0)), equals(false));
       expect(isValidJungCode('가'.codeUnitAt(0)), equals(false));
@@ -50,6 +59,13 @@ void main() {
       expect(isValidJongCode('ㅀ'.codeUnitAt(0)), equals(true));
       expect(isValidJongCode('ㅏ'.codeUnitAt(0)), equals(false));
       expect(isValidJongCode('a'.codeUnitAt(0)), equals(false));
+    });
+    test('isValidJamo', () {
+      expect(isValidJamoCode('ㄱ'.codeUnitAt(0)), equals(true));
+      expect(isValidJamoCode('가'.codeUnitAt(0)), equals(false));
+      expect(isValidJamoCode('ㅀ'.codeUnitAt(0)), equals(true));
+      expect(isValidJamoCode('ㅏ'.codeUnitAt(0)), equals(true));
+      expect(isValidJamoCode('a'.codeUnitAt(0)), equals(false));
     });
   });
   group('isHangulSyllableCode()', () {

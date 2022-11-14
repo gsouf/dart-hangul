@@ -142,3 +142,21 @@ bool isValidJung(String? char) {
 bool isValidJong(String? char) {
   return _jong.contains(char);
 }
+
+/// Checks that given character is a valid jamo.
+///
+/// ```dart
+/// isValidJamo('ㄴ');    // true
+/// ```
+bool isValidJamo(String? char) {
+  return isValidCho(char) || isValidJong(char) || isValidJung(char);
+}
+
+/// Checks that given character code is a valid jamo.
+///
+/// ```dart
+/// isValidJamoCode('ㄴ'.codeUnitAt(0));    // true
+/// ```
+bool isValidJamoCode(int char) {
+  return isValidChoCode(char) || isValidJongCode(char) || isValidJungCode(char);
+}
