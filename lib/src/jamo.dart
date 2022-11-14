@@ -116,7 +116,7 @@ bool isValidJongCode(int char) {
   return _jongCharCode.contains(char);
 }
 
-/// Checks that given character code is a valid cho jamo in the unicode table.
+/// Checks that given character is a valid cho jamo in the unicode table.
 ///
 /// ```dart
 /// isValidCho('ㄷ');    // true
@@ -125,7 +125,7 @@ bool isValidCho(String? char) {
   return _cho.contains(char);
 }
 
-/// Checks that given character code is a valid jung jamo in the unicode table.
+/// Checks that given character is a valid jung jamo in the unicode table.
 ///
 /// ```dart
 /// isValidJung('ㅔ');    // true
@@ -134,7 +134,7 @@ bool isValidJung(String? char) {
   return _jung.contains(char);
 }
 
-/// Checks that given character code is a valid jong jamo in the unicode table.
+/// Checks that given character is a valid jong jamo in the unicode table.
 ///
 /// ```dart
 /// isValidJong('ㄴ');    // true
