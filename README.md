@@ -71,6 +71,7 @@ HangulSyllable('ㅆ', 'a');
 import 'package:hangul/hangul.dart';
 
 // check jamo
+isValidJamo('ㄱ');  // true
 isValidCho('ㄱ');  // true
 isValidJung('ㅏ'); // true
 isValidJong('ㄱ'); // true
@@ -79,6 +80,7 @@ isValidCho('ㅏ');  // false
 isValidCho('ㅄ');  // false
 
 // can also be used from character code
+isValidJamoCode('ㄱ'.codeUnitAt(0));  // true
 isValidChoCode('ㄱ'.codeUnitAt(0));  // true
 isValidJungCode('ㅏ'.codeUnitAt(0)); // true
 isValidJongCode('ㄱ'.codeUnitAt(0)); // true
