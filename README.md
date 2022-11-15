@@ -2,13 +2,19 @@
 
 This package is an utility to manipulate korean hangul characters (한글) in dart.
 
-## Install
+# Install
 
 ```sh
 $ dart pub add hangul
 ```
 
-## Getting Started
+# Getting Started
+
+The library is composed of 2 modules:
+- HangulSyllable: to validate and create hangul syllables from jamos and to destruct syllables into jamos.
+- HangulInput: to create hangul sentences from input string in order to emulate keyboard strokes.
+
+# HangulSyllable
 
 The basics of the library is to manipulate hangul syllables.
 
@@ -64,8 +70,29 @@ HangulSyllable('ㅆ', 'a');
 // thrown AssertionError with message "Invalid character provided for jung."
 ```
 
+# HangulInput
 
-## utilities
+The class `HangulInput` will simulate the behavior of keyboard strokes. 
+The goal is to make it possible to implement virtual keyboards.
+It can also be used to combine a string of jamos together into a string of syllables.
+
+```dart
+import 'package:hangul/hangul.dart';
+
+final input = HangulInput('');
+
+input.pushCharacter('ㄷ');
+input.pushCharacter('ㅏ');
+input.pushCharacter('ㄹ');
+input.pushCharacter('ㄱ');
+input.pushCharacter('ㅇ');
+input.pushCharacter('ㅡ');
+input.pushCharacter('ㄴ');
+
+print(input.text); // 닭은
+```
+
+# utilities
 
 ```dart
 import 'package:hangul/hangul.dart';

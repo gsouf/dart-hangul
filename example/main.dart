@@ -13,10 +13,23 @@ void main(List<String> arguments) {
       wordToTransform.runes.map((e) => HangulSyllable.fromCharCode(e)).toList();
 
   // replace  the jung (vowel) of each word
+  // 하다 will become 후두.
   syllables.forEach((syllable) {
     syllable.jung = 'ㅜ';
   });
 
+  final newWord = syllables.join('');
+
   print('Word transformed:');
-  print(syllables.join(''));
+  print(newWord);
+
+  // input hangul characters in the string
+  final input = HangulInput(newWord);
+
+  input.pushCharacter('ㄹ');
+  input.pushCharacter('ㅡ');
+  input.pushCharacter('ㄹ');
+
+  print('String with new input:');
+  print(input.text);
 }

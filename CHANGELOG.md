@@ -2,6 +2,7 @@
 
 * added function isValidJamo
 * added function isValidJamoCode
+* added class HangulInput for creating hangul sentences from individual characters
 
 ## [0.1.1] - 2021-05-09.
 
