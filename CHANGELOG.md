@@ -1,8 +1,8 @@
-## [0.2.0] - 2022-xx-xx.
+## [0.2.0] - 2022-23-11.
 
 * added function isValidJamo
 * added function isValidJamoCode
-* added class HangulInput for creating hangul sentences from individual characters
+* added class HangulInput for creating hangul syllables from individual characters
 
 ## [0.1.1] - 2021-05-09.
 

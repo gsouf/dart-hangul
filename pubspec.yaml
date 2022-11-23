@@ -2,7 +2,7 @@ name: hangul
 description: >
   Work with korean hangul characters (한글).
   Validate characters, split syllables into jamo, merge jamos into syllables.
-version: 0.1.1
+version: 0.2.0
 repository: https://gitlab.com/souf/dart-hangul
 homepage: https://gitlab.com/souf/dart-hangul
 
