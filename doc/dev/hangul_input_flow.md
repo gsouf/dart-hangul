@@ -36,7 +36,7 @@ graph TD
 graph TD
   A("addToCho(NC)") --> B{CFC+NC is a valid<br/>cho combination?}
   B --> |Yes| C["replaceFinalCharacter(combineCho(CFC+NC))"]
-  B --> |No| D{NC is a valid jung jamo?}
+  B --> |No| D{NC is a valid<br/>jung jamo?}
   D --> |Yes| E["replaceFinalCharacter(syllable(CFC, NC))"]
   D --> |No| F["concatCharacter(NC)"]
 ```
@@ -47,7 +47,7 @@ graph TD
 graph TD
   A("addToJung(NC)") --> B{LJ+NC is a valid<br/>jung combination?}
   B --> |Yes| C["replaceFinalCharacter(combineJung(CFC+NC))"]
-  B --> |No| D{NC is a valid jong jamo?}
+  B --> |No| D{NC is a valid<br/>jong jamo?}
   D --> |Yes| E["replaceFinalCharacter(syllable(CFC.cho, CFC.jung, NC))"]
   D --> |No| F["concatCharacter(NC)"]
 ```
@@ -58,9 +58,9 @@ graph TD
 graph TD
   A("addToJong(NC)") --> B{LJ+NC is a valid<br/>jong combination?}
   B --> |Yes| C["replaceFinalCharacter(combineJong(CFC+NC))"]
-  B --> |No| D{NC is a valid jung jamo?}
+  B --> |No| D{NC is a valid<br/>jung jamo?}
   D --> |No| H["concatCharacter(NC)"]
-  D --> |Yes| E{LJ is a combined jong jamo}
+  D --> |Yes| E{LJ is a combined<br/>jong jamo?}
   E --> |Yes| F[Uncombine LJ into 2 jamos.<br/>First jamos goes to CFC jong.<br/>Second jamos makes a new syllable as a Cho + NC as a jung]
   E --> |NO| G[Remove jong from CFC.<br/>Use CFC jong as cho of a new syllable + NC as jung]
 ```
