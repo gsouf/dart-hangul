@@ -22,7 +22,7 @@ graph TD
   A("pushCharacter(NC)") --> B{NC is a jamo? <br/> AND Has no break?}
   B --> |No| C["concatCharacter(NC)"]
   B --> |Yes| D{CFC is a valid cho jamo?}
-  D --> |Yes| E("addToShow(NC)")
+  D --> |Yes| E("addToCho(NC)")
   D --> |No| F{CFC is a valid<br/>hangul syllable?}
   F --> |No| C
   F --> |Yes| G{CFC syllable has<br/>a jong jamo?}
