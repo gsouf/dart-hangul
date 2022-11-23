@@ -15,10 +15,11 @@ internal string.
  - `NC` stands for "New character". That is the string being passed to the method `pushCharacter`.
  - `LJ` stands from "Last jamo". That is the final jamo found in the CFL.
 
+### Global flowchart:
 
 ```mermaid
 graph TD
-  A("pushCharacter(NC)") --> B{NC is a jamo? AND Has no break?}
+  A("pushCharacter(NC)") --> B{NC is a jamo? <br/> AND Has no break?}
   B --> |No| C["concatCharacter(NC)"]
   B --> |Yes| D{CFC is a valid cho jamo?}
   D --> |Yes| E("addToShow(NC)")
@@ -29,6 +30,8 @@ graph TD
   G --> |Yes| I("addToJung(NC)")
 ```
 
+### If last char is a cho
+
 ```mermaid
 graph TD
   A("addToCho(NC)") --> B{CFC+NC is a valid cho combination?}
@@ -37,6 +40,8 @@ graph TD
   D --> |Yes| E["replaceFinalCharacter(syllable(CFC, NC))"]
   D --> |No| F["concatCharacter(NC)"]
 ```
+
+### If last char is a jung
 
 ```mermaid
 graph TD
@@ -47,6 +52,8 @@ graph TD
   D --> |No| F["concatCharacter(NC)"]
 ```
 
+### If last char is a jong
+
 ```mermaid
 graph TD
   A("addToJong(NC)") --> B{LJ+NC is a valid jong combination?}
@@ -54,6 +61,6 @@ graph TD
   B --> |No| D{NC is a valid jung jamo?}
   D --> |No| H["concatCharacter(NC)"]
   D --> |Yes| E{LJ is a combined jong jamo}
-  E --> |Yes| F[uncombine LJ into 2 jamos. First jamos goes to CFC jong. Second jamos makes a new syllable as a Cho + NC as a jung]
-  E --> |NO| G[Remove jong from CFC and use it as a cho of a new syllable + NC as a jung]
+  E --> |Yes| F[uncombine LJ into 2 jamos.<br/>First jamos goes to CFC jong.<br/>Second jamos makes a new syllable as a Cho + NC as a jung]
+  E --> |NO| G[Remove jong from CFC.<br/>Use CFC jong as cho of a new syllable + NC as jung]
 ```
