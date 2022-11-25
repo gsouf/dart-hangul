@@ -90,6 +90,13 @@ input.pushCharacter('ㅡ');
 input.pushCharacter('ㄴ');
 
 print(input.text); // 닭은
+
+input.backspace();
+print(input.text); // 닭ㅇ
+
+input.backspace();
+input.backspace();
+print(input.text); // 달
 ```
 
 # utilities

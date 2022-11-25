@@ -59,6 +59,33 @@ class HangulInput {
     }
   }
 
+  void backspace() {
+    if (hasBreak) {
+      _replaceFinalCharacter('');
+    } else if (_text.isNotEmpty) {
+      final String currentFinalCharacter = _text.substring(_text.length - 1);
+
+      if (isHangulSyllable(currentFinalCharacter)) {
+        final currentSyllable =
+            HangulSyllable.fromString(currentFinalCharacter);
+        if (currentSyllable.jong != null) {
+          if (_jongCombinations.containsValue(currentSyllable.jong)) {
+            final combination = _jongCombinations.keys.firstWhere(
+                (k) => _jongCombinations[k] == currentSyllable.jong);
+            currentSyllable.jong = combination[0];
+          } else {
+            currentSyllable.jong = null;
+          }
+          _replaceFinalCharacter(currentSyllable.toString());
+        } else {
+          _replaceFinalCharacter(currentSyllable.cho);
+        }
+      } else {
+        _replaceFinalCharacter('');
+      }
+    }
+  }
+
   void _addToCho(String newChar, String currentFinalCharacter) {
     if (_choCombinations.containsKey(currentFinalCharacter + newChar)) {
       _replaceFinalCharacter(

@@ -30,6 +30,13 @@ void main(List<String> arguments) {
   input.pushCharacter('ㅡ');
   input.pushCharacter('ㄹ');
 
-  print('String with new input:');
+  print('String with added input:');
+  print(input.text);
+
+  input.backspace();
+  input.backspace();
+  input.pushCharacter('ㅏ');
+
+  print('String with backspace and replaced input:');
   print(input.text);
 }

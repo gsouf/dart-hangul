@@ -1,3 +1,7 @@
+## [0.3.0] - 2022-26-11.
+
+* added method HangulIput.backspace
+
 ## [0.2.0] - 2022-23-11.
 
 * added function isValidJamo

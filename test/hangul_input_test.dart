@@ -83,7 +83,7 @@ void main() {
     test('HangulInput.pushCharacter shakedown', () {
       final input = HangulInput('');
 
-      input.pushCharacter('ㅎ');
+      input.pushCharacter('ㅇ');
       input.pushCharacter('ㅏ');
       input.pushCharacter('ㄴ');
       input.pushCharacter('ㄴ');
@@ -117,8 +117,49 @@ void main() {
       input.pushCharacter('ㅛ');
       input.pushCharacter('?');
 
-      expect(input.text, equals('한녕하세요 닭은 왜 좋아요?'));
-      expect(input.toString(), equals('한녕하세요 닭은 왜 좋아요?'));
+      expect(input.text, equals('안녕하세요 닭은 왜 좋아요?'));
+      expect(input.toString(), equals('안녕하세요 닭은 왜 좋아요?'));
+    });
+  });
+  group('HangulInput.backspace', () {
+    test('HangulInput.backspace empty', () {
+      final input = HangulInput('');
+      input.backspace();
+      expect(input.text, equals(''));
+    });
+
+    test('HangulInput.backspace latin', () {
+      final input = HangulInput('aa');
+      input.backspace();
+      expect(input.text, equals('a'));
+      input.backspace();
+      expect(input.text, equals(''));
+    });
+
+    test('HangulInput.backspace jamo', () {
+      final input = HangulInput('ㅇㅏ');
+      input.backspace();
+      expect(input.text, equals('ㅇ'));
+      input.backspace();
+      expect(input.text, equals(''));
+    });
+    test('HangulInput.backspace syllables', () {
+      final input = HangulInput('닭은?');
+      input.backspace();
+      expect(input.text, equals('닭은'));
+      input.backspace();
+      expect(input.text, equals('닭으'));
+      input.backspace();
+      expect(input.text, equals('닭ㅇ'));
+      input.backspace();
+      expect(input.text, equals('닭'));
+      input.backspace();
+      expect(input.text, equals('달'));
+      input.backspace();
+      input.backspace();
+      expect(input.text, equals('ㄷ'));
+      input.backspace();
+      expect(input.text, equals(''));
     });
   });
 }
