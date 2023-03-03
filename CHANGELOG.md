@@ -1,10 +1,10 @@
 ## [0.4.0] - 2023-03-03.
 
-* added method HangulIput.clear
+* added method HangulInput.clear
 
 ## [0.3.0] - 2022-26-11.
 
-* added method HangulIput.backspace
+* added method HangulInput.backspace
 
 ## [0.2.0] - 2022-23-11.
 
