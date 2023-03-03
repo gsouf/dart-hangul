@@ -89,14 +89,18 @@ input.pushCharacter('ㅇ');
 input.pushCharacter('ㅡ');
 input.pushCharacter('ㄴ');
 
-print(input.text); // 닭은
+print(input.text); // "닭은"
 
 input.backspace();
-print(input.text); // 닭ㅇ
+print(input.text); // "닭ㅇ"
 
 input.backspace();
 input.backspace();
-print(input.text); // 달
+print(input.text); // "달"
+
+// empty
+input.clear();
+print(input.text); // ""
 ```
 
 # utilities

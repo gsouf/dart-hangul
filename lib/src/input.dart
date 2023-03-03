@@ -86,6 +86,11 @@ class HangulInput {
     }
   }
 
+  void clear() {
+    _text = '';
+    hasBreak = false;
+  }
+
   void _addToCho(String newChar, String currentFinalCharacter) {
     if (_choCombinations.containsKey(currentFinalCharacter + newChar)) {
       _replaceFinalCharacter(

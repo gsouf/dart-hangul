@@ -10,6 +10,7 @@ void main() {
       input.pushCharacter('a');
       expect(input.text, equals('ㅈa'));
     });
+
     test('HangulInput.pushCharacter last character is not hangul', () {
       final input = HangulInput('');
 
@@ -17,6 +18,7 @@ void main() {
       input.pushCharacter('ㅈ');
       expect(input.text, equals(' ㅈ'));
     });
+
     test('HangulInput.pushCharacter combine cho', () {
       final input = HangulInput('');
 
@@ -24,6 +26,7 @@ void main() {
       input.pushCharacter('ㅈ');
       expect(input.text, equals('ㅉ'));
     });
+
     test('HangulInput.pushCharacter add jung to cho', () {
       final input = HangulInput('');
 
@@ -31,6 +34,7 @@ void main() {
       input.pushCharacter('ㅏ');
       expect(input.text, equals('자'));
     });
+
     test('HangulInput.pushCharacter uncombinable cho', () {
       final input = HangulInput('');
 
@@ -38,48 +42,56 @@ void main() {
       input.pushCharacter('ㅂ');
       expect(input.text, equals('ㅈㅂ'));
     });
+
     test('HangulInput.pushCharacter combine jong', () {
       final input = HangulInput('한');
 
       input.pushCharacter('ㅈ');
       expect(input.text, equals('핝'));
     });
+
     test('HangulInput.pushCharacter uncombinable jong', () {
       final input = HangulInput('한');
 
       input.pushCharacter('ㄴ');
       expect(input.text, equals('한ㄴ'));
     });
+
     test('HangulInput.pushCharacter move jong to cho', () {
       final input = HangulInput('한');
 
       input.pushCharacter('ㅏ');
       expect(input.text, equals('하나'));
     });
+
     test('HangulInput.pushCharacter uncombine jong and move with cho', () {
       final input = HangulInput('잙');
 
       input.pushCharacter('ㅏ');
       expect(input.text, equals('잘가'));
     });
+
     test('HangulInput.pushCharacter combine jung', () {
       final input = HangulInput('오');
 
       input.pushCharacter('ㅐ');
       expect(input.text, equals('왜'));
     });
+
     test('HangulInput.pushCharacter uncombinable jung', () {
       final input = HangulInput('오');
 
       input.pushCharacter('ㅜ');
       expect(input.text, equals('오ㅜ'));
     });
+
     test('HangulInput.pushCharacter add jong to jung', () {
       final input = HangulInput('오');
 
       input.pushCharacter('ㄹ');
       expect(input.text, equals('올'));
     });
+
     test('HangulInput.pushCharacter shakedown', () {
       final input = HangulInput('');
 
@@ -102,7 +114,7 @@ void main() {
       input.pushCharacter('ㄱ');
       input.pushCharacter('ㅇ');
       input.pushCharacter('ㅡ');
-      input.pushCharacter('ㄴ');
+      input.pushCharacter('ㄹ');
       input.pushCharacter(' ');
       input.pushCharacter('ㅇ');
       input.pushCharacter('ㅗ');
@@ -117,10 +129,11 @@ void main() {
       input.pushCharacter('ㅛ');
       input.pushCharacter('?');
 
-      expect(input.text, equals('안녕하세요 닭은 왜 좋아요?'));
-      expect(input.toString(), equals('안녕하세요 닭은 왜 좋아요?'));
+      expect(input.text, equals('안녕하세요 닭을 왜 좋아요?'));
+      expect(input.toString(), equals('안녕하세요 닭을 왜 좋아요?'));
     });
   });
+
   group('HangulInput.backspace', () {
     test('HangulInput.backspace empty', () {
       final input = HangulInput('');
@@ -143,6 +156,7 @@ void main() {
       input.backspace();
       expect(input.text, equals(''));
     });
+
     test('HangulInput.backspace syllables', () {
       final input = HangulInput('닭은?');
       input.backspace();
@@ -161,5 +175,19 @@ void main() {
       input.backspace();
       expect(input.text, equals(''));
     });
+  });
+
+  test('HangulInput.clear', () {
+    final input = HangulInput('');
+    input.clear();
+    expect(input.text, equals(''));
+    expect(input.hasBreak, false);
+    input.pushCharacter('ㅇ');
+    input.pushCharacter('ㅛ');
+
+    expect(input.text, equals('요'));
+    input.clear();
+    expect(input.text, equals(''));
+    expect(input.hasBreak, false);
   });
 }
