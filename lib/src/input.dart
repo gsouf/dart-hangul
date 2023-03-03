@@ -1,5 +1,4 @@
 import 'package:hangul/hangul.dart';
-import 'package:hangul/src/jamo.dart';
 
 const Map<String, String> _jongCombinations = {
   'ㄱㄱ': 'ㄲ',
