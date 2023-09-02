@@ -1,3 +1,8 @@
+## [0.5.0] - 2023-03-03.
+
+* BREAKING CHANGE - Fix: inputting 아,ㄲ,ㅏ was producing "악가"  instead of "아까"
+* Dart version <4.0 instead of <3.0
+
 ## [0.4.0] - 2023-03-03.
 
 * added method HangulInput.clear

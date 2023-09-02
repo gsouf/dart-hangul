@@ -1,7 +1,6 @@
 import 'package:hangul/hangul.dart';
 
 const Map<String, String> _jongCombinations = {
-  'ㄱㄱ': 'ㄲ',
   'ㄱㅅ': 'ㄳ',
   'ㄴㅈ': 'ㄵ',
   'ㄴㅎ': 'ㄶ',
@@ -13,7 +12,6 @@ const Map<String, String> _jongCombinations = {
   'ㄹㅍ': 'ㄿ',
   'ㄹㅎ': 'ㅀ',
   'ㅂㅅ': 'ㅄ',
-  'ㅅㅅ': 'ㅆ',
 };
 
 const Map<String, String> _jungCombinations = {

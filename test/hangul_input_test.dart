@@ -92,6 +92,37 @@ void main() {
       expect(input.text, equals('올'));
     });
 
+    test('HangulInput.pushCharacter add jong to jung', () {
+      final input = HangulInput('오');
+
+      input.pushCharacter('ㄹ');
+      expect(input.text, equals('올'));
+    });
+
+    test('HangulInput.pushCharacter handles ㄲ and ㅆ properly', () {
+      final input = HangulInput('아');
+      input.pushCharacter('ㄱ');
+      input.pushCharacter('ㄱ');
+      input.pushCharacter('ㅏ');
+      expect(input.text, equals('악가'));
+
+      final input2 = HangulInput('아');
+      input2.pushCharacter('ㄲ');
+      input2.pushCharacter('ㅏ');
+      expect(input2.text, equals('아까'));
+
+      final input3 = HangulInput('아');
+      input3.pushCharacter('ㅅ');
+      input3.pushCharacter('ㅅ');
+      input3.pushCharacter('ㅏ');
+      expect(input3.text, equals('앗사'));
+
+      final input4 = HangulInput('아');
+      input4.pushCharacter('ㅆ');
+      input4.pushCharacter('ㅏ');
+      expect(input4.text, equals('아싸'));
+    });
+
     test('HangulInput.pushCharacter shakedown', () {
       final input = HangulInput('');
 
