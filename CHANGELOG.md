@@ -1,3 +1,7 @@
+## [0.6.0] - 2023-12-08.
+
+* added syllableHasJong and syllableCodeHasJong
+
 ## [0.5.0] - 2023-03-03.
 
 * BREAKING CHANGE - Fix: inputting 아,ㄲ,ㅏ was producing "악가"  instead of "아까"
