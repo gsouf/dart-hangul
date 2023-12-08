@@ -120,6 +120,34 @@ bool isHangulSyllable(String char) {
   return isHangulSyllableCode(char.codeUnitAt(0));
 }
 
+/// Checks that given character code ends with a jong character.
+///
+/// ```dart
+/// syllableCodeHasJong('하'.codeUnitAt(0));    // false
+/// syllableCodeHasJong('은'.codeUnitAt(0));    // true
+/// syllableCodeHasJong('a'.codeUnitAt(0));    // false
+/// ```
+bool syllableCodeHasJong(int syllable) {
+  if (!isHangulSyllableCode(syllable)) {
+    return false;
+  }
+  final charIndex = syllable - _hangulFirstSyllable;
+  return charIndex % 28 != 0;
+}
+
+/// Checks that given character ends with a jong character.
+///
+/// ```dart
+/// syllableHasJong('하');    // false
+/// syllableHasJong('은');    // true
+/// syllableHasJong('a');    // false
+/// ```
+bool syllableHasJong(String syllable) {
+  assert(syllable.length == 1,
+      'Syllable should be exactly 1 character long string.');
+  return syllableCodeHasJong(syllable.codeUnitAt(0));
+}
+
 /// Disassembles a single unicode hangul syllable
 HangulSyllable _parseHangulSyllable(int syllable) {
   assert(isHangulSyllableCode(syllable),

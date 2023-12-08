@@ -68,6 +68,24 @@ void main() {
       expect(isValidJamoCode('a'.codeUnitAt(0)), equals(false));
     });
   });
+  group('syllableHasJong()', () {
+    test('syllableCodeHasJong', () {
+      expect(syllableCodeHasJong('ㄱ'.codeUnitAt(0)), equals(false));
+      expect(syllableCodeHasJong('하'.codeUnitAt(0)), equals(false));
+      expect(syllableCodeHasJong('은'.codeUnitAt(0)), equals(true));
+      expect(syllableCodeHasJong('좋'.codeUnitAt(0)), equals(true));
+      expect(syllableCodeHasJong('값'.codeUnitAt(0)), equals(true));
+      expect(syllableCodeHasJong('a'.codeUnitAt(0)), equals(false));
+    });
+    test('syllableHasJong', () {
+      expect(syllableHasJong('ㄱ'), equals(false));
+      expect(syllableHasJong('하'), equals(false));
+      expect(syllableHasJong('은'), equals(true));
+      expect(syllableHasJong('좋'), equals(true));
+      expect(syllableHasJong('값'), equals(true));
+      expect(syllableHasJong('a'), equals(false));
+    });
+  });
   group('isHangulSyllableCode()', () {
     test('is true', () {
       const chars = ['가', '각', '걖', '괓', '쪲', '힢', '힣'];

@@ -132,6 +132,17 @@ isHangulSyllable('q');   // false
 // can also be used from character code
 isHangulSyllableCode('쪲'.codeUnitAt(0));   // true
 
+// check that ends with a jong character
+syllableHasJong('하');    // false
+syllableHasJong('은');    // true
+syllableHasJong('a');    // false
+
+// can also be used from character code
+syllableCodeHasJong('하'.codeUnitAt(0));    // false
+syllableCodeHasJong('은'.codeUnitAt(0));    // true
+syllableCodeHasJong('a'.codeUnitAt(0));    // false
+
+
 // list of valid cho jung and jong are also exported:
 final Set allJamos = {...choJamos, ...jungJamos, ...jongJamos};
 ```
