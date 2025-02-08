@@ -9,6 +9,22 @@
   * `HangulSyllable.jung` setter
   * `HangulSyllable.jong` setter
 
+```dart
+// before (AssertionError) 
+try {
+  HangulSyllable.fromString(someString);
+} catch (AssertionError e) {
+  print(e);
+}
+
+// after (ArgumentError)
+try {
+  HangulSyllable.fromString(someString);
+} catch (ArgumentError e) {
+  print(e);
+}
+```
+
 ## [0.6.0] - 2023-12-08.
 
 * added syllableHasJong and syllableCodeHasJong
