@@ -5,7 +5,9 @@ void main(List<String> arguments) {
 
   // ensure all characters are valid syllables
   wordToTransform.runes.forEach((char) {
-    assert(isHangulSyllableCode(char));
+    if (!isHangulSyllableCode(char)) {
+      throw ArgumentError('Invalid Hangul syllable: $char');
+    }
   });
 
   // convert each character to a HangulSyllable instance

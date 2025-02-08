@@ -177,29 +177,29 @@ void main() {
       expect(
           () => HangulSyllable.fromString('쪲쪲'),
           throwsA(predicate((e) =>
-              e is AssertionError &&
+              e is ArgumentError &&
               e.message ==
                   'Syllable should be exactly 1 character long string.')));
       expect(
           () => HangulSyllable.fromString('a'),
           throwsA(predicate((e) =>
-              e is AssertionError &&
+              e is ArgumentError &&
               e.message ==
                   'Trying to disassemble a character that is not a hangul syllable.')));
       expect(
           () => HangulSyllable('쪲', 'ㅜ'),
           throwsA(predicate((e) =>
-              e is AssertionError &&
+              e is ArgumentError &&
               e.message == 'Invalid character provided for cho.')));
       expect(
           () => HangulSyllable('ㅆ', 'a'),
           throwsA(predicate((e) =>
-              e is AssertionError &&
+              e is ArgumentError &&
               e.message == 'Invalid character provided for jung.')));
       expect(
           () => HangulSyllable('ㅆ', 'ㅜ', 'ㅜ'),
           throwsA(predicate((e) =>
-              e is AssertionError &&
+              e is ArgumentError &&
               e.message == 'Invalid character provided for jong.')));
     });
     test('toString', () {

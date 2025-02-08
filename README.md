@@ -67,7 +67,7 @@ import 'package:hangul/hangul.dart';
 
 HangulSyllable('ㅆ', 'a');
 
-// thrown AssertionError with message "Invalid character provided for jung."
+// thrown ArgumentError with message "Invalid character provided for jung."
 ```
 
 # HangulInput

@@ -1,3 +1,14 @@
+## [0.7.0] - 2025-02-08.
+
+* BREAKING CHANGE - replaced assert with throwing ArgumentError in * replaced assert with throwing ArgumentError in:
+  * `syllableHasJong`
+  * `syllableCodeHasJong`
+  * `HangulSyllable.fromString`
+  * `HangulSyllable.fromCharCode`
+  * `HangulSyllable.cho` setter
+  * `HangulSyllable.jung` setter
+  * `HangulSyllable.jong` setter
+
 ## [0.6.0] - 2023-12-08.
 
 * added syllableHasJong and syllableCodeHasJong

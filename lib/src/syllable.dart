@@ -41,19 +41,25 @@ class HangulSyllable {
 
   /// Sets a valid cho jamo.
   set cho(String cho) {
-    assert(isValidCho(cho), 'Invalid character provided for cho.');
+    if (!isValidCho(cho)) {
+      throw ArgumentError('Invalid character provided for cho.');
+    }
     _cho = cho;
   }
 
   /// Sets a valid jung jamo.
   set jung(String jung) {
-    assert(isValidJung(jung), 'Invalid character provided for jung.');
+    if (!isValidJung(jung)) {
+      throw ArgumentError('Invalid character provided for jung.');
+    }
     _jung = jung;
   }
 
   /// Sets an optional valid jong jamo. Null being a valid value for jong.
   set jong(String? jong) {
-    assert(isValidJong(jong), 'Invalid character provided for jong.');
+    if (!isValidJong(jong)) {
+      throw ArgumentError('Invalid character provided for jong.');
+    }
     _jong = jong;
   }
 
@@ -76,8 +82,10 @@ class HangulSyllable {
   /// HangulSyllable.fromString('하');
   /// ```
   factory HangulSyllable.fromString(String syllable) {
-    assert(syllable.length == 1,
-        'Syllable should be exactly 1 character long string.');
+    if (syllable.length != 1) {
+      throw ArgumentError(
+          'Syllable should be exactly 1 character long string.');
+    }
     return _parseHangulSyllable(syllable.codeUnitAt(0));
   }
 
@@ -143,15 +151,18 @@ bool syllableCodeHasJong(int syllable) {
 /// syllableHasJong('a');    // false
 /// ```
 bool syllableHasJong(String syllable) {
-  assert(syllable.length == 1,
-      'Syllable should be exactly 1 character long string.');
+  if (syllable.length != 1) {
+    throw ArgumentError('Syllable should be exactly 1 character long string.');
+  }
   return syllableCodeHasJong(syllable.codeUnitAt(0));
 }
 
 /// Disassembles a single unicode hangul syllable
 HangulSyllable _parseHangulSyllable(int syllable) {
-  assert(isHangulSyllableCode(syllable),
-      'Trying to disassemble a character that is not a hangul syllable.');
+  if (!isHangulSyllableCode(syllable)) {
+    throw ArgumentError(
+        'Trying to disassemble a character that is not a hangul syllable.');
+  }
 
   final charIndex = syllable - _hangulFirstSyllable;
   final jongIndex = charIndex % 28; // 28 being number of possible jong
