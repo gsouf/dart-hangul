@@ -1,6 +1,6 @@
 ## [0.7.0] - 2025-02-08.
 
-* BREAKING CHANGE - replaced assert with throwing ArgumentError in * replaced assert with throwing ArgumentError in:
+* BREAKING CHANGE - replaced assert with throwing ArgumentError in:
   * `syllableHasJong`
   * `syllableCodeHasJong`
   * `HangulSyllable.fromString`
