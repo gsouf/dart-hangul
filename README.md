@@ -2,6 +2,9 @@
 
 This package is an utility to manipulate korean hangul characters (한글) in dart.
 
+[![pub.dev - hangul](https://img.shields.io/badge/pub.dev-hangul-2ea44f)](https://pub.dev/packages/hangul)
+
+
 # Install
 
 ```sh
